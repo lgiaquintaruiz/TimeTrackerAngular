@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="es">
+    <meta charset="UTF-8">
+    <title>Pruebas Date Time Picker</title>
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="content/site.css" />-->
+    <link rel="stylesheet" type="text/css" media="screen" href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/master/build/css/bootstrap-datetimepicker.min.css" />
+    <!--<link rel="stylesheet" type="text/css" media="screen" href="content/pygments-manni.css" />-->
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/jquery.datetimepicker.css"/>
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <script type="text/javascript" src="../lib/jquery-2.1.1.js"></script>
+    <script src="../lib/jquery.datetimepicker.js"></script>
+    <!--<script type="text/javascript" src="//code.jquery.com/jquery-2.1.1.min.js"></script>-->
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker5'>
+                    <input type='text' class="form-control" data-date-format="YYYY/MM/DD"/>
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-calendar"></span>
+					</span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker5').datetimepicker({
+                    pickTime: false
+                });
+            });
+        </script>
+    </div>
+
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker'>
+                    <input type='text' class="form-control" data-date-format="DD/MM/YYYY"/>
+					<span class="input-group-addon">
+						<span class="glyphicon glyphicon-calendar"></span>
+					</span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker').datetimepicker({
+                    pickTime: false
+                });
+            });
+        </script>
+    </div>
+
+    <div class="row">
+        <div class='col-sm-6'>
+            <input type='text' class="form-control" id='datetimepicker6'/>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker6').datetimepicker();
+            });
+        </script>
+    </div>
+
+    <div class="row">
+        <div class="input-group" id="datetimepickerx">
+            <span class="input-group-addon datepickerbutton">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+                <input type='text' class="form-control" id="datetimepicker7"/>
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-remove"></span>
+            </span>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepickerx').datetimepicker();
+            });
+        </script>
+    </div>
+</div>
+<script src="../lib/bootstrap.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head lang="es">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Time Tracker LG</title>
+    <script src="lib/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/bootstrap.css.map"/>
+    <script src="lib/jquery.datetimepicker.js"></script>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body ng-app="MyFirstApp">
+
+<div class="container-fluid" ng-controller="SecondaryCtrl">
+
+    <!--<basic-directive funny="2 * 5"></basic-directive>-->
+
+    <div class="content">
+
+        <div class="row well">
+
+            <div class="col-xs-6 well col-lg-3 well visible-md visible-lg">
+            <!--User Panel -->
+            <h3>{{name}}</h3>
+            <img class="img-responsive img-circle" src="images/foto.png">
+            <br/><br/><br/><br/>
+            <a href="#" class="btn">Time Grid</a><br/>
+            <a href="#" class="btn">Account Settings</a><br/>
+            <a href="#" class="btn">Log out</a>
+        </div>
+        <div class="col-xs-6 col-lg-8">
+            <div class="row well">
+                <!--Tasks Insert-->
+                <div class="col-xs-12-fluid">
+                    <form name="form" ng-submit="addTask()" novalidate>
+                        <div class="input-group">
+                            <div class="input-group-addon" >
+                                <input class="btn-primary" type="button" value="     Calendar              " disabled="true"/>
+                                <!--id="datetimepicker"-->
+                                <input type="datetime" id="datetimepicker"
+                                       class="form-control input-xs"
+                                       placeholder="dd-mm-yyyy hh:mm"
+                                       name="date"
+                                       required
+                                       ng-model="newTask.date"
+                                />
+                            </div>
+                            <input type="number"  id="txtTime" class="form-control input-xs"
+                                   placeholder="Time"
+                                   name="time"
+                                   required
+                                   ng-model="newTask.time"
+                                   min="1"
+                            />
+                            <!--<span ng-show="form.time.$error.required && form.$dirty" class="help-inline">Es requerido!</span>-->
+                            <input type="text" id="txtTask" class="form-control input-xs" placeholder="Task"
+                                   name="desc"
+                                   required
+                                   ng-minlength="5"
+                                   ng-model="newTask.desc"
+                            />
+                            <!--<span ng-show="form.desc.$error.minlength && form.$dirty" class="help-inline">Pone algo más de lo que hiciste!</span>-->
+                            <div class="input-group-addon">
+                                <input class="btn-primary" type="submit" value="Track"
+                                        ng-disabled="form.$invalid"
+                                />
+                            </div>
+                        </div>
+                    </form>
+                    <!--<div ng-if="form.$invalid ">-->
+                    <!--<p>Datos Validos</p>-->
+                    <!--<p>form.date.$valid = {{ form.date.$valid }}</p>-->
+                    <!--<p>form.time.$valid = {{ form.time.$valid }}</p>-->
+                    <!--<p>form.desc.$valid = {{ form.desc.$valid }}</p>-->
+                    <!--<p>Datos con Error</p>-->
+                    <!--<p>form.date.$error.required = {{ form.date.$error.required }}</p>-->
+                    <!--<p>form.time.$error.required = {{ form.time.$error.required }}</p>-->
+                    <!--<p>form.time.$error.min = {{ form.time.$error.min }}</p>-->
+                    <!--<p>form.desc.$error.required = {{ form.desc.$error.required }}</p>-->
+                    <!--<p>form.desc.$error.minlength = {{ form.desc.$error.minlength }}</p>-->
+                    <!--<P>Restultan Estado Formulario</P>-->
+                    <!--<p>form.$valid = {{ form.$valid }}</p>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div class="row well">
+                <!--Tasks Table-->
+                <div class="col-xs-12-fluid">
+                    <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                        <li><a href="#red" data-toggle="tab">N-2</a></li>
+                        <li><a href="#orange" data-toggle="tab">Yesterday</a></li>
+                        <li class="active"><a href="#yellow" data-toggle="tab">Today</a></li>
+                        <li><a href="#green" data-toggle="tab">N+1</a></li>
+                    </ul>
+                    <div id="my-tab-content" class="tab-content">
+                        <div class="tab-pane" id="red">
+                              <table style="width:100%" class="table table-striped table-bordered">
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Time</th>
+                                    <th>Edit</th>
+                                </tr>
+                                <tr ng-repeat="task in tasks">
+                                    <td>{{ task.Desc }}</td>
+                                    <td>{{ task.Time }}</td>
+                                    <td>{{ task.Edit }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="orange">
+                            <table style="width:100%" class="table table-striped table-bordered">
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Time</th>
+                                    <th>Edit</th>
+                                </tr>
+                                <tr>
+                                    <td>Programming</td>
+                                    <td>2:30hs</td>
+                                    <td>X</td>
+                                </tr>
+                                <tr>
+                                    <td>Research</td>
+                                    <td>30m</td>
+                                    <td>X</td>
+                                </tr>
+                                <tr>
+                                    <td>Programming</td>
+                                    <td>4hs</td>
+                                    <td>X</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tab-pane active" id="yellow">
+                            <table style="width:100%" class="table table-striped table-bordered">
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Time</th>
+                                    <th>Edit</th>
+                                </tr>
+                                <tr ng-repeat="task in tasks">
+                                    <td>{{ task.Desc }}</td>
+                                    <td>{{ task.Time }}</td>
+                                    <td>{{ task.Edit }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="green">
+                            <table style="width:100%" class="table table-striped table-bordered">
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Time</th>
+                                    <th>Edit</th>
+                                </tr>
+                                <tr>
+                                    <td>Programming</td>
+                                    <td>2:30hs</td>
+                                    <td>X</td>
+                                </tr>
+                                <tr>
+                                    <td>Research</td>
+                                    <td>30m</td>
+                                    <td>X</td>
+                                </tr>
+                                <tr>
+                                    <td>Programming</td>
+                                    <td>4hs</td>
+                                    <td>X</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<link rel="stylesheet" href="css/jquery.datetimepicker.css"/>
+<script src="lib/angular.min.js"></script>
+<script src="lib/bootstrap.js"></script>
+<script src="scripts/SecondaryCtrl.js"></script>
+<script src="lib/jquery_functions.js"></script>
+<script src="scripts/basic-directive/basic.js"></script>
+</body>
+</html>

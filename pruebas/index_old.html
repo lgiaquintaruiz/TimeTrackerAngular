@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="es">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Time Tracker LG
+    </title>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-theme.css"/>
+</head>
+<body ng-app="MyFirstApp">
+
+<h3>Hola mundo!</h3>
+<br/>
+<aside class="aside-izq">
+    <div class="title">
+        <h1>Homer Simpson</h1></div>
+    <div><img height="77px" width="93px" src="../images/foto.png">
+        <label>text</label>
+    </div>
+    <h3>Time grid</h3>
+    <h4>Account Settings</h4>
+    <h4>Log out</h4>
+</aside>
+
+<form class="up_part">
+    <input id="scheduler" type="button" value="Calendario"/>
+    <input type="text" align="right"/>
+    <input type="text"/>
+    <button type="submit">Track</button>
+</form>
+<div class="down_part">
+    parte inferior
+</div>
+
+<form method="post" action="action.php">
+    Ingresa un texto: <input name="ingresatexto" type="text" value="Por favor, ingresa aquí" />
+</form>
+-->
+<!--
+<main ng-controller="SecondaryCtrl">
+    <div>Hi, {{name}}</div>
+    <div>Hi, {{valor1}}</div>
+    <div>Hi, {{valor2}}</div>
+</main>
+-->
+<!-- agregar los scripts necesarios para correr la aplicacion -->
+<script src="../lib/angular.js"></script>
+<!--jquery se debe incluir antes que bootstrap-->
+<script src="../lib/jquery-2.1.1.js"></script>
+<script src="../lib/bootstrap.js"></script>
+<script src="../scripts/SecondaryCtrl.js"></script>
+</body>
+</html>

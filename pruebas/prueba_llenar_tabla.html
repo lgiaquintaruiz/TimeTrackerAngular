@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="es">
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<div ng-app="" ng-controller="customersController">
+
+    <table>
+        <tr><td><b>Nombre</b></td><td><b>País</b></td></tr>
+        <tr ng-repeat="x in names">
+            <td>{{ x.Name }}</td>
+            <td>{{ x.Country }}</td>
+        </tr>
+    </table>
+
+</div>
+
+<script>
+    function customersController($scope,$http) {
+        $http.get("http://www.w3schools.com/website/Customers_JSON.php")
+                .success(function(response) {$scope.names = response;});
+    }
+</script>
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+</body>
+</html>
